@@ -4,10 +4,10 @@ This tool will automatically configure OpenAM's server settings and is designed 
 
 It uses two tools provided by OpenAM: SSOAdminTools-13.0.0 and SSOConfiguratorTools-13.0.0 which can be obtained from ForgeRock.
 
-# Please set the following
+# Initial steps
 
 ## pass
-pass is a hashed password file used to set the admin passwords in config.properties. The the current salt is set to "password1234!" inside the run.sh script. Change this password and generate this file for automated builds. You can also ignore this file if you pass the argument -p to set your admin passwords.
+pass is a hashed password file used to set the admin passwords in config.properties. The the current salt is set to "password1234!" inside the execute.sh script. Change this password and generate this file for automated builds. You can also ignore this file if you pass the argument -p to set your admin passwords.
 
 Use the following line to generate a new hashed pass file:
 ```
@@ -17,7 +17,7 @@ test
 ## config.properties
 Set the domains related to your OpenAM configuration. You can use this sample configuration as a guide. It is currently configurd to use LDAP as your datastore. This configuration may also be generated using the SSOADM tool or by referencing the admin section of an existing installation of OpenAM.
 
-## run.sh
+## execute.sh
 Set the paths for your openam-13 installation.
 
 # How to run standalone
@@ -28,7 +28,7 @@ Set the paths for your openam-13 installation.
 4. <b>Optional</b>: If you removed the /openam-13/config folder in previous step, reboot machine to restart openam. Allow the server a few minutes to restart.
 5. <b>Optional</b>: if you don't want to use the default configuration settings, adjust config.properties. Keep admin passwords blank.
 6. <b>Optional</b>: if you don't want to use the default admin password, use -p "<adminPassword>".
-7. Execute "./run.sh" as root. A backup of config.properties will be made.
+7. Execute "./execute.sh" as root. A backup of config.properties will be made.
 8. <b>Optional</b>: Remove /openam-13/openam-tools directory when you are finished.
 
 # Arguments
@@ -37,7 +37,7 @@ Set the paths for your openam-13 installation.
 Use -p <password> flag to use a custom password
 
 
-# SSOADM Commands
+# SSOADM Commands Reference
 ```
 get-attr-defs
 
